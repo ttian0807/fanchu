@@ -1,0 +1,599 @@
+/* ── Base & Reset ────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ──────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(157, 123, 94, 0.18);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(157, 123, 94, 0.3);
+}
+
+/* ── Transitions ────────────────────────────── */
+button,
+input,
+textarea,
+select {
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.15s, opacity 0.2s;
+}
+
+/* ── Nav buttons ────────────────────────────── */
+nav button {
+  transition: all 0.2s ease;
+}
+nav button:hover {
+  background: linear-gradient(180deg, rgba(255, 249, 241, 0.98) 0%, rgba(243, 226, 204, 0.88) 100%);
+  border-color: rgba(201, 134, 99, 0.2);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(201, 134, 99, 0.12);
+}
+nav button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(201, 134, 99, 0.08);
+}
+
+/* hide scrollbar on nav but keep scroll */
+nav {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+nav::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Generic button hover ───────────────────── */
+button:not(:disabled):hover {
+  filter: brightness(0.97);
+}
+button:not(:disabled):active {
+  transform: scale(0.98);
+}
+
+/* ── Card hover ─────────────────────────────── */
+.card-interactive {
+  transition: box-shadow 0.25s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+.card-interactive:hover {
+  box-shadow: 0 16px 40px rgba(165, 128, 95, 0.14);
+  transform: translateY(-1px);
+  border-color: rgba(157, 123, 94, 0.18);
+}
+
+/* ── Mini buttons ───────────────────────────── */
+.btn-mini {
+  transition: all 0.18s ease;
+}
+.btn-mini:hover {
+  background: rgba(255, 246, 237, 1);
+  border-color: rgba(157, 123, 94, 0.22);
+  box-shadow: 0 4px 12px rgba(165, 128, 95, 0.1);
+}
+
+/* ── Action buttons (primary) ───────────────── */
+.btn-action {
+  transition: all 0.2s ease;
+}
+.btn-action:hover {
+  box-shadow: 0 8px 20px rgba(165, 128, 95, 0.14);
+  transform: translateY(-1px);
+}
+.btn-action:active {
+  transform: translateY(0);
+}
+
+/* ── Strong action buttons ──────────────────── */
+.btn-strong {
+  transition: all 0.2s ease;
+}
+.btn-strong:hover {
+  box-shadow: 0 14px 28px rgba(201, 134, 99, 0.2);
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+}
+.btn-strong:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 16px rgba(201, 134, 99, 0.14);
+}
+
+/* ── Input focus ────────────────────────────── */
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: rgba(201, 134, 99, 0.35);
+  box-shadow: 0 0 0 3px rgba(201, 134, 99, 0.08), inset 0 1px 3px rgba(165, 128, 95, 0.06);
+  outline: none;
+}
+
+/* ── Pills / tags ───────────────────────────── */
+.pill {
+  transition: all 0.18s ease;
+}
+.pill:hover {
+  background: rgba(255, 246, 237, 0.95);
+  border-color: rgba(157, 123, 94, 0.22);
+  transform: translateY(-1px);
+}
+
+/* ── Stage pills ────────────────────────────── */
+.stage-pill {
+  transition: all 0.18s ease;
+}
+.stage-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(165, 128, 95, 0.1);
+}
+
+/* ── Section cards ──────────────────────────── */
+.section-card {
+  transition: box-shadow 0.3s ease, border-color 0.2s ease;
+}
+.section-card:hover {
+  box-shadow: 0 16px 36px rgba(165, 128, 95, 0.12);
+}
+
+/* ── Timeline items ─────────────────────────── */
+.timeline-item {
+  transition: background 0.2s ease;
+  border-radius: 12px;
+  padding: 10px 8px;
+  margin: -10px -8px;
+}
+.timeline-item[style*="cursor: pointer"]:hover,
+.timeline-item.interactive:hover {
+  background: rgba(255, 246, 237, 0.6);
+}
+
+/* ── Routine check circle ───────────────────── */
+.routine-check {
+  transition: all 0.25s ease;
+}
+.routine-check:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 16px rgba(165, 128, 95, 0.14);
+}
+
+/* ── Routine row ────────────────────────────── */
+.routine-row {
+  transition: box-shadow 0.25s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+.routine-row:hover {
+  box-shadow: 0 12px 28px rgba(165, 128, 95, 0.12);
+  transform: translateY(-1px);
+  border-color: rgba(157, 123, 94, 0.18);
+}
+
+/* ── Project card in pipeline ───────────────── */
+.project-card {
+  transition: box-shadow 0.25s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+.project-card:hover {
+  box-shadow: 0 14px 32px rgba(165, 128, 95, 0.13);
+  transform: translateY(-1px);
+  border-color: rgba(157, 123, 94, 0.18);
+}
+
+/* ── Type card ──────────────────────────────── */
+.type-card {
+  transition: box-shadow 0.25s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+.type-card:hover {
+  box-shadow: 0 18px 40px rgba(165, 128, 95, 0.14);
+  transform: translateY(-1px);
+}
+
+/* ── Type icon ──────────────────────────────── */
+.type-icon {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.type-icon:hover {
+  transform: scale(1.06);
+}
+
+/* ── Date navigation buttons ────────────────── */
+.date-btn {
+  transition: all 0.18s ease;
+}
+.date-btn:not(:disabled):hover {
+  background: rgba(255, 246, 237, 1);
+  border-color: rgba(157, 123, 94, 0.22);
+  box-shadow: 0 6px 16px rgba(165, 128, 95, 0.1);
+}
+
+/* ── Today button ───────────────────────────── */
+.today-btn {
+  transition: all 0.2s ease;
+}
+.today-btn:hover {
+  box-shadow: 0 10px 24px rgba(201, 134, 99, 0.18);
+  transform: translateY(-1px);
+}
+
+/* ── Add project button ─────────────────────── */
+.add-btn {
+  transition: all 0.2s ease;
+}
+.add-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(165, 128, 95, 0.14);
+}
+.add-btn:active {
+  transform: translateY(0);
+}
+
+/* ── Danger / delete actions ────────────────── */
+.btn-danger:hover {
+  color: #c87e68;
+  background: rgba(200, 126, 104, 0.08);
+}
+
+/* ── Export / utility buttons ───────────────── */
+.btn-util {
+  transition: all 0.2s ease;
+  opacity: 0.7;
+}
+.btn-util:hover {
+  opacity: 1;
+  background: rgba(255, 246, 237, 0.95);
+  border-color: rgba(157, 123, 94, 0.2);
+}
+
+/* ── Textarea auto-grow visual ──────────────── */
+textarea {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ── Empty state ────────────────────────────── */
+.empty-state {
+  transition: box-shadow 0.3s ease;
+}
+.empty-state:hover {
+  box-shadow: 0 18px 40px rgba(165, 128, 95, 0.12);
+}
+
+/* ── Archived section ───────────────────────── */
+.archived-row {
+  transition: background 0.2s ease;
+}
+.archived-row:hover {
+  background: rgba(255, 246, 237, 0.5);
+}
+
+/* ── Color input ────────────────────────────── */
+input[type="color"] {
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+input[type="color"]:hover {
+  transform: scale(1.05);
+}
+
+/* ── Menu overlay (for export dropdown) ────── */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+}
+.menu-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  min-width: 140px;
+  padding: 6px;
+  background: rgba(255, 250, 244, 0.98);
+  border: 1px solid rgba(157, 123, 94, 0.14);
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(165, 128, 95, 0.18);
+  backdrop-filter: blur(20px);
+  z-index: 100;
+  animation: menuIn 0.15s ease;
+}
+.menu-item {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  color: #5f4635;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+.menu-item:hover {
+  background: rgba(201, 134, 99, 0.08);
+}
+
+@keyframes menuIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Selection color ────────────────────────── */
+::selection {
+  background: rgba(201, 134, 99, 0.2);
+  color: #5f4635;
+}
+
+/* ── Timeline row hover ────────────────────── */
+.timeline-row {
+  transition: background 0.2s ease, border-radius 0.2s ease;
+  border-radius: 14px;
+  margin: 0 -8px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.timeline-row.interactive:hover {
+  background: rgba(255, 246, 237, 0.6);
+}
+
+/* ── Misc detail panel (overlay + card) ──── */
+.misc-panel-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(95, 70, 53, 0.18);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  animation: miscFadeIn 0.18s ease;
+}
+.misc-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(440px, calc(100vw - 40px));
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  background: linear-gradient(180deg, rgba(255, 251, 246, 0.99) 0%, rgba(247, 236, 223, 0.97) 100%);
+  border: 1px solid rgba(157, 123, 94, 0.14);
+  border-radius: 22px;
+  box-shadow: 0 32px 72px rgba(95, 70, 53, 0.22), 0 2px 6px rgba(95, 70, 53, 0.08);
+  z-index: 201;
+  animation: miscSlideIn 0.22s ease;
+}
+.misc-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid rgba(157, 123, 94, 0.08);
+}
+.misc-panel-close {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 250, 244, 0.84);
+  border: 1px solid rgba(157, 123, 94, 0.1);
+  border-radius: 999px;
+  color: #ab8f78;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.misc-panel-close:hover {
+  background: rgba(255, 246, 237, 1);
+  color: #5f4635;
+}
+.misc-panel-body {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.misc-panel-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 11px;
+  color: #ab8f78;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.misc-panel-time-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.misc-panel-time-input {
+  padding: 9px 12px;
+  background: rgba(255, 251, 246, 0.92);
+  border: 1px solid rgba(157, 123, 94, 0.18);
+  border-radius: 12px;
+  color: #5f4635;
+  font-size: 13px;
+  font-family: 'JetBrains Mono', monospace;
+  outline: none;
+}
+.misc-panel-time-hint {
+  font-size: 11px;
+  color: #ab8f78;
+  font-family: 'JetBrains Mono', monospace;
+}
+.misc-panel-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px 18px;
+  border-top: 1px solid rgba(157, 123, 94, 0.08);
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.misc-panel-actions-left {
+  display: flex;
+  gap: 8px;
+}
+.misc-panel-actions-right {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+.misc-panel-btn-primary {
+  padding: 9px 18px;
+  background: linear-gradient(180deg, rgba(240, 219, 197, 0.92) 0%, rgba(232, 197, 168, 0.96) 100%);
+  border: 1px solid rgba(201, 134, 99, 0.26);
+  border-radius: 14px;
+  color: #b66d4c;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(201, 134, 99, 0.14);
+  transition: all 0.2s ease;
+}
+.misc-panel-btn-primary:hover {
+  box-shadow: 0 12px 28px rgba(201, 134, 99, 0.2);
+  transform: translateY(-1px);
+}
+.misc-panel-btn-mute {
+  padding: 9px 16px;
+  background: rgba(255, 250, 244, 0.84);
+  border: 1px solid rgba(157, 123, 94, 0.1);
+  border-radius: 14px;
+  color: #ab8f78;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.misc-panel-btn-mute:hover {
+  background: rgba(255, 246, 237, 1);
+  border-color: rgba(157, 123, 94, 0.2);
+}
+.misc-panel-btn-danger {
+  padding: 9px 16px;
+  background: rgba(200, 126, 104, 0.06);
+  border: 1px solid rgba(200, 126, 104, 0.15);
+  border-radius: 14px;
+  color: #c87e68;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.misc-panel-btn-danger:hover {
+  background: rgba(200, 126, 104, 0.12);
+  border-color: rgba(200, 126, 104, 0.3);
+}
+
+/* ── Misc time picker row ──────────────────── */
+.misc-time-picker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  padding: 8px 12px;
+  background: rgba(255, 251, 246, 0.86);
+  border: 1px solid rgba(157, 123, 94, 0.1);
+  border-radius: 14px;
+  animation: miscFadeIn 0.15s ease;
+}
+.misc-time-toggle {
+  transition: all 0.18s ease;
+}
+.misc-time-toggle:hover {
+  background: rgba(255, 246, 237, 1) !important;
+  border-color: rgba(201, 134, 99, 0.3) !important;
+}
+
+@keyframes miscFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes miscSlideIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* ── Nav motto ─────────────────────────────── */
+.nav-motto {
+  margin-left: auto;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+.nav-motto-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+.nav-motto-btn:hover {
+  background: rgba(255, 246, 237, 0.7);
+}
+.nav-motto-btn:hover .nav-motto-pencil {
+  opacity: 1;
+}
+.nav-motto-text {
+  font-size: 12px;
+  color: #cdb59d;
+  font-style: italic;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+.nav-motto-pencil {
+  font-size: 10px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  flex-shrink: 0;
+}
+.nav-motto-edit {
+  display: flex;
+  align-items: center;
+}
+.nav-motto-input {
+  width: 240px;
+  padding: 7px 12px;
+  background: rgba(255, 251, 246, 0.95);
+  border: 1px solid rgba(201, 134, 99, 0.25);
+  border-radius: 999px;
+  color: #5f4635;
+  font-size: 12px;
+  font-style: italic;
+  font-family: inherit;
+  outline: none;
+  box-shadow: 0 4px 16px rgba(165, 128, 95, 0.1);
+}
+
+/* ── Focus visible (keyboard nav) ───────────── */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid rgba(201, 134, 99, 0.4);
+  outline-offset: 2px;
+}
